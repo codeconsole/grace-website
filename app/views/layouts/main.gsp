@@ -25,7 +25,7 @@
 
         <div class="collapse navbar-collapse" aria-expanded="false" id="navbarContent">
             <ul class="navbar-nav ms-auto navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-                <g:if env="development">
+                <sec:ifAnyGranted roles="ROLE_ADMIN">
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Application Status</a>
                     <ul class="dropdown-menu">
@@ -61,7 +61,6 @@
                         </g:each>
                     </ul>
                 </li>
-                </g:if>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Management</a>
                     <ul class="dropdown-menu">
@@ -74,9 +73,10 @@
                         </g:each>
                     </ul>
                 </li>
+                </sec:ifAnyGranted>
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Languages</a>
-                    <ul class="dropdown-menu dropdown-menu-end">
+                    <ul class="dropdown-menu<sec:ifNotLoggedIn> dropdown-menu-end"</sec:ifNotLoggedIn>">
                         <g:each var="lang" in="${['en', 'cs', 'da', 'de', 'es', 'fr', 'it', 'ja', 'nb', 'nl', 'pl', 'pt_BR', 'pt_PT', 'ru', 'sk', 'sv', 'th', 'zh_CN', 'zh_TW']}">
                             <g:set var="locale" value="${Locale.forLanguageTag(lang.replace('_', '-'))}"/>
                             <g:set var="paramsWithLang" value="${params + [lang:lang]}"/>
@@ -88,6 +88,21 @@
                         </g:each>
                     </ul>
                 </li>
+                <sec:ifLoggedIn>
+                <li class="nav-item dropdown">
+                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><sec:username /></a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                       <li>
+                            <a class="dropdown-item" href="/logout">Log Out</a>
+                        </li>
+                    </ul>
+                </li>
+                </sec:ifLoggedIn>
+                <sec:ifNotLoggedIn>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link" style="padding-top: 25px; padding-bottom: 25px">Login</a>
+                </li>
+                </sec:ifNotLoggedIn>
             </ul>
         </div>
     </div>

@@ -26,10 +26,10 @@ public class SecurityConfig {
             )
             .httpBasic(withDefaults())
             .formLogin(withDefaults())
+//            .oauth2Login(withDefaults())
             .csrf((csrf) -> csrf
                     .disable()
-            ).userDetailsService(userService)
-            .oauth2Login(withDefaults());
+            ).userDetailsService(userService);
         // @formatter:on
         return http.build();
     }

@@ -97,6 +97,5 @@ tasks.withType(Test) {
 
 
 assets {
-    minifyJs = true
-    minifyCss = true
+    skipNonDigests = true
 }

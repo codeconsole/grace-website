@@ -5,8 +5,8 @@ repositories {
 }
 
 dependencies {
-    implementation "org.graceframework:grace-gradle-plugin:2023.0.0-M7"
+    implementation "org.graceframework:grace-gradle-plugin:2023.0.0-RC2"
     implementation "com.github.erdi:webdriver-binaries-gradle-plugin:3.2"
-    implementation "org.graceframework.plugins:database-migration:6.0.0-M3"
-    implementation "org.graceframework.plugins:asset-pipeline-gradle:6.0.0-M4"
+    implementation "org.graceframework.plugins:database-migration:6.0.0-RC1"
+    implementation "org.graceframework.plugins:asset-pipeline-gradle:6.0.0-RC1"
 }

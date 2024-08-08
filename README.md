@@ -11,3 +11,12 @@ generate-controller Sample
 generate-views Sample
 install-templates
 ```
+
+## Grace VS Grails
+
+### Jar File Size
+| [Grace 2023.0.0-RC2](https://github.com/codeconsole/website) | [Grails 6.2.0](https://github.com/codeconsole/grace-website) |
+| --------------- | --------------- | 
+| `66M ./BOOT-INF/lib` | `129M ./BOOT-INF/lib` |
+| `16M ./assets` | ` 66M ./assets` |
+| `83M .` | `196M .` |

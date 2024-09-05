@@ -34,9 +34,9 @@
                     <f:table collection="${sampleList}" />
 
                     <g:if test="${sampleCount > params.int('max')}">
-                    <nav aria-label="Page navigation">
-                        <bs:paginate total="${sampleCount ?: 0}" useIcons="true" align="center" />
-                    </nav>
+                    <div class="pagination justify-content-center">
+                        <g:paginate total="${sampleCount ?: 0}" />
+                    </div>
                     </g:if>
                 </div>
             </section>

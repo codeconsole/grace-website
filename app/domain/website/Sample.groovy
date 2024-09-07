@@ -7,5 +7,7 @@ class Sample {
     Date prop3
 
     static constraints = {
+        prop1 size: 5..15
+        prop2 max: 100
     }
 }

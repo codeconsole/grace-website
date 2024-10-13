@@ -12,9 +12,9 @@ class User implements UserDetails {
     String password
 
     boolean enabled = true
-    boolean accountExpired = false
-    boolean accountLocked = false
-    boolean passwordExpired = false
+    boolean accountNonExpired = false
+    boolean accountNonLocked = false
+    boolean credentialsNonExpired = false
 
     @Override
     Collection<? extends GrantedAuthority> getAuthorities() {

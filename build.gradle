@@ -8,7 +8,7 @@ plugins {
     id "org.graceframework.grace-gsp"
 }
 
-ext['spring-boot.version'] = '3.3.0'
+// ext['spring-boot.version'] = '3.3.0'
 
 group "website"
 

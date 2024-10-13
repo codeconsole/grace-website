@@ -7,6 +7,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
 import website.UserService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -19,9 +20,9 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http
+            http
             .authorizeHttpRequests((authorize) -> authorize
-                .requestMatchers("/", "/assets/**").permitAll()
+                .requestMatchers(new AntPathRequestMatcher("/"), new AntPathRequestMatcher("/assets/**")).permitAll()
                 .anyRequest().authenticated()
             )
             .httpBasic(withDefaults())
